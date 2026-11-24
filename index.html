@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f1e6">
+  <meta name="description" content="짜친조 미술관의 온라인 사진전 《성기준 전시회》. 한 사람의 평범한 순간을 유난히 진지하게 전시합니다.">
+  <title>성기준 전시회 | 짜친조 미술관</title>
+  <link rel="stylesheet" href="./assets/gallery.css">
+  <script src="./assets/exhibition.js" defer></script>
+  <script src="./assets/walkway.js" defer></script>
+  <script src="./assets/gallery.js" defer></script>
+  <script src="./assets/soundtrack.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#gallery">작품실로 바로 가기</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>짜친조 미술관</span>
+      </a>
+      <nav class="site-nav" aria-label="전시 메뉴">
+        <a href="#gallery">작품실</a>
+        <a href="#books">베스트셀러</a>
+        <a href="#about">전시 소개</a>
+        <a href="#life">생애</a>
+      </nav>
+      <button class="sound-button" id="sound-toggle" type="button" aria-label="배경음악" aria-pressed="false" hidden>
+        <span class="sound-mark" aria-hidden="true">♪</span>
+        <span id="sound-label" aria-hidden="true">BGM 켜기</span>
+      </button>
+      <audio id="soundtrack" src="./assets/heaven-again.mp3" preload="none" loop
+        data-cue-start="0.18" data-cue-end="171.15" data-crossfade="1.75"></audio>
+      <span class="sr-only" id="sound-status" role="status"></span>
+    </div>
+  </header>
+
+  <main>
+    <section class="gallery-room" id="gallery" aria-labelledby="exhibition-title" tabindex="-1">
+      <div class="container exhibition-heading">
+        <div>
+          <p class="eyebrow">온라인 사진전</p>
+          <h1 id="exhibition-title">성기준 <span>전시회</span></h1>
+          <div class="room-picker" id="room-picker" role="group" aria-label="전시관 선택" hidden></div>
+          <p class="exhibition-description" id="room-description">짜친조가 선정한 최고의 명화를 만나보세요.</p>
+        </div>
+        <div class="walk-guide" id="walk-guide" hidden>
+          <div class="walk-controls" role="group" aria-label="작품 사이 이동">
+            <button type="button" class="outline-button" id="walk-previous" data-walk-previous aria-disabled="true">이전 작품</button>
+            <span class="walk-count" id="walk-count" aria-hidden="true"></span>
+            <button type="button" class="outline-button forward-button" id="walk-next" data-walk-next aria-disabled="true">다음 작품</button>
+          </div>
+          <p class="walk-hint" id="walk-hint">좌우로 끌거나 방향키로 관람하세요.</p>
+        </div>
+      </div>
+      <div class="gallery-wall">
+        <ul class="walkway" id="walkway" role="list" aria-label="전시 작품" aria-describedby="walk-hint" tabindex="0"></ul>
+        <p class="container room-empty" id="room-empty" hidden>이 관의 작품을 준비하고 있습니다.</p>
+        <div class="room-floor" aria-hidden="true"></div>
+      </div>
+      <span class="sr-only" id="walk-status" data-walk-status role="status"></span>
+      <noscript><p class="container">작품을 감상하려면 브라우저에서 자바스크립트를 켜 주세요.</p></noscript>
+    </section>
+
+    <section class="book-room" id="books" aria-labelledby="book-room-title" tabindex="-1">
+      <div class="container book-room-heading">
+        <div>
+          <h2 id="book-room-title">베스트셀러 서가</h2>
+          <p>성기준과 제5탄약창에서 출발한 이야기를 책 표지로 만납니다.</p>
+        </div>
+        <div class="walk-guide" id="book-walk-guide" hidden>
+          <div class="walk-controls" role="group" aria-label="책 사이 이동">
+            <button type="button" class="outline-button" id="book-previous" data-walk-previous aria-disabled="true">이전 책</button>
+            <span class="walk-count" id="book-walk-count" aria-hidden="true"></span>
+            <button type="button" class="outline-button forward-button" id="book-next" data-walk-next aria-disabled="true">다음 책</button>
+          </div>
+          <p class="walk-hint" id="book-walk-hint">좌우로 끌거나 방향키로 관람하세요.</p>
+        </div>
+      </div>
+      <div class="book-wall">
+        <ul class="walkway bookshelf" id="bookshelf" role="list" aria-label="베스트셀러 서가" aria-describedby="book-walk-hint" tabindex="0"></ul>
+        <p class="container room-empty" hidden>이 서가에 전시할 책을 준비하고 있습니다.</p>
+        <div class="room-floor" aria-hidden="true"></div>
+      </div>
+      <span class="sr-only" data-walk-status role="status"></span>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title" tabindex="-1">
+      <div class="container about-inner">
+        <h2 id="about-title">전시회 소개</h2>
+        <div>
+          <p class="curator-note">살아있는 명화에 둘러싸인<br>우주는 성기준을 꿈꾼다.</p>
+          <p class="about-copy">예술은 우리가 맺고 있는 관계에서 충족되지 않은 기대에서 비롯된다. 욕구와 현실이 일치하지 않는다면, 아름다운 존재에 둘러싸여 있어도 아름다움을 느끼지 못할 것이다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="life" id="life" aria-labelledby="life-title" tabindex="-1">
+      <div class="container life-inner">
+        <div>
+          <p class="eyebrow">인물 연보</p>
+          <h2 id="life-title">생애</h2>
+          <p class="life-description">성기준의 유난히 중요한 발자취.</p>
+          <figure class="archive-photo" id="life-portrait" hidden>
+            <img id="life-image" width="1448" height="1086" alt="" loading="lazy" decoding="async">
+            <figcaption id="life-image-caption"></figcaption>
+          </figure>
+        </div>
+        <ol class="life-timeline" id="life-timeline" role="list"></ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>짜친조 미술관</span>
+      <a href="#top">맨 위로</a>
+    </div>
+  </footer>
+
+  <dialog class="work-dialog" id="work-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-layout">
+      <div class="dialog-art">
+        <img id="dialog-image" alt="" width="1448" height="1086">
+      </div>
+      <div class="dialog-details">
+        <button class="outline-button dialog-close" id="dialog-close" type="button" autofocus>닫기</button>
+        <div class="dialog-copy">
+          <h2 id="dialog-title"></h2>
+          <p id="dialog-caption"></p>
+        </div>
+        <div class="dialog-nav" id="dialog-nav" role="group" aria-label="작품 이동">
+          <button class="outline-button" id="previous-work" type="button" aria-label="이전 작품">이전</button>
+          <span id="dialog-position" role="status"></span>
+          <button class="outline-button" id="next-work" type="button" aria-label="다음 작품">다음</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <template id="work-template">
+    <li class="work-bay">
+      <figure class="work-display">
+        <button class="work-frame" type="button" tabindex="-1">
+          <span class="work-mat"><img alt="" width="1448" height="1086" loading="lazy" decoding="async" draggable="false"></span>
+        </button>
+        <figcaption class="work-placard">
+          <h2 class="work-title"></h2>
+          <p class="work-caption"></p>
+        </figcaption>
+      </figure>
+    </li>
+  </template>
+
+  <template id="book-template">
+    <li class="work-bay">
+      <figure class="book-exhibit">
+        <div class="book-niche">
+          <div class="book-cover">
+            <button class="book-cover-button" type="button" tabindex="-1" hidden>
+              <img class="book-cover-image" alt="" loading="lazy" decoding="async" draggable="false">
+            </button>
+            <div class="book-cover-copy">
+              <h3 class="book-title"></h3>
+              <p class="book-subtitle"></p>
+              <span class="book-imprint">짜친조 미술관</span>
+            </div>
+          </div>
+        </div>
+        <figcaption class="book-caption"></figcaption>
+      </figure>
+    </li>
+  </template>
+
+  <template id="life-template">
+    <li>
+      <p class="life-period"></p>
+      <h3 class="life-event"></h3>
+      <p class="life-record"></p>
+    </li>
+  </template>
+</body>
+</html>
