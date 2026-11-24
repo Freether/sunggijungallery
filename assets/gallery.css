@@ -288,6 +288,12 @@ img { display: block; max-width: 100%; }
   box-shadow: inset 0 3px 13px #44523d16;
 }
 
+.gallery-room[data-room="history"] .gallery-wall {
+  border-color: #c8af78;
+  background: radial-gradient(ellipse at 51% 6%, #fff6df, #eddfbb 62%, #dcc696);
+  box-shadow: inset 0 3px 13px #70512516;
+}
+
 .room-empty { padding-block: clamp(2.5rem, 7vw, 6rem); color: var(--muted); }
 
 .walkway {
@@ -414,6 +420,13 @@ img { display: block; max-width: 100%; }
     repeating-linear-gradient(107deg, transparent 0 9rem, #59635242 9rem 9.08rem, transparent 9.08rem 9.2rem),
     linear-gradient(180deg, #929983, #bfc4b2);
   box-shadow: inset 0 1px #d3d8c4;
+}
+
+.gallery-room[data-room="history"] .room-floor {
+  border-top-color: #aa8b58;
+  background:
+    repeating-linear-gradient(106deg, transparent 0 7.75rem, #8b6b5138 7.75rem 7.81rem, transparent 7.81rem 7.95rem),
+    linear-gradient(180deg, #bda477, #ddc79c);
 }
 
 .book-room h2, .about h2, .life h2 {
